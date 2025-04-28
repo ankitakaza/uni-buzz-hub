@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import NavBar from '@/components/NavBar';
-import StoriesList from '@/components/StoriesList';
 import NewsFeedFilters from '@/components/NewsFeedFilters';
 import PostCard from '@/components/PostCard';
 import RightSidebar from '@/components/RightSidebar';
@@ -14,51 +13,6 @@ import { Image, Smile } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 // Sample data
-const stories = [
-  {
-    id: '1',
-    name: 'CS Club',
-    imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: false,
-  },
-  {
-    id: '2',
-    name: 'Drama Society',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: false,
-  },
-  {
-    id: '3',
-    name: 'Debate Club',
-    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: true,
-  },
-  {
-    id: '4',
-    name: 'Student Council',
-    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: false,
-  },
-  {
-    id: '5',
-    name: 'Sports Team',
-    imageUrl: 'https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: true,
-  },
-  {
-    id: '6',
-    name: 'Photography',
-    imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: false,
-  },
-  {
-    id: '7',
-    name: 'Music Club',
-    imageUrl: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80',
-    seen: false,
-  }
-];
-
 const filters = [
   { id: 'all', name: 'All' },
   { id: 'academics', name: 'Academics', count: 12 },
@@ -168,13 +122,8 @@ const Index = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [postContent, setPostContent] = useState('');
 
-  const handleFilterChange = (filterId: string) => {
+  const handleFilterChange = (filterId) => {
     setActiveFilter(filterId);
-  };
-
-  const handleViewStory = (id: string) => {
-    console.log('View story:', id);
-    // Implement story viewing logic
   };
 
   const handlePostSubmit = () => {
@@ -238,12 +187,6 @@ const Index = () => {
           {/* Main Content */}
           <div className="col-span-1 md:col-span-3">
             <div className="space-y-4">
-              {/* Stories */}
-              <StoriesList
-                stories={stories}
-                onViewStory={handleViewStory}
-              />
-
               {/* Create Post */}
               <Card>
                 <CardContent className="p-4">
